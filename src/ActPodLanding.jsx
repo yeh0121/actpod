@@ -116,7 +116,7 @@ const Nav = () => (
   <header className="sticky top-0 z-40 w-full border-b border-black/10 bg-white/80 backdrop-blur">
     <Container className="flex h-16 items-center justify-between">
       <div className="flex items-center gap-2">
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-amber-300 text-black shadow">
+        <span className=" h-8 w-8 items-center justify-center rounded-xl">
           <IconMic className="h-4 w-4" />
         </span>
         <span className="text-lg font-semibold">ActPod</span>
