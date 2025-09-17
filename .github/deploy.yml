@@ -2,7 +2,7 @@ name: Deploy Vite to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # 如果你是 master，就改成 master
+    branches: [ main ]  # 只要 push 到 main 分支，就會自動觸發
 
 permissions:
   contents: read
@@ -17,26 +17,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
-      # 單頁應用路由修復（BrowserRouter 重新整理不 404）
-      - name: Create 404.html (for SPA routing)
+      # React Router / SPA 網站避免刷新 404
+      - name: Create 404.html
         run: cp dist/index.html dist/404.html
 
-      - name: Upload artifact
+      - name: Upload build output
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
