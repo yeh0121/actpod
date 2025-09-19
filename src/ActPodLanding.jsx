@@ -93,7 +93,7 @@ const PhoneFrame = ({ children }) => (
   </div>
 );
 
-const DemoScreen = () => (
+const DemoScreenn = () => (
   <div className="h-[520px] bg-gradient-to-b from-amber-50 to-white">
     {/* Fake top bar */}
     <div className="flex items-center justify-between px-4 py-3">
@@ -112,19 +112,25 @@ const DemoScreen = () => (
   </div>
 );
 
+const DemoScreen = () => (
+  <div className="h-[520px] bg-gradient-to-b from-amber-50 to-white">
+    <img className="h-full w-full object-cover" src="assets/hero.png" alt="Demo Screen" />
+  </div>
+);
+
 // --- Sections ---
 const Nav = () => (
   <header className="sticky top-0 z-40 w-full border-b border-black/10 bg-white/80 backdrop-blur">
     <Container className="flex h-16 items-center justify-between">
       <div className="flex items-center gap-2">
-        <span className=" h-8 w-8 items-center justify-center rounded-xl">
+        <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl text-black">
           <IconMic className="h-4 w-4" />
         </span>
-        <span className="text-lg font-semibold">ActPod</span>
+        <span className="text-lg font-semibold text-amber-400">ActPod</span>
       </div>
       <nav className="hidden items-center gap-6 text-sm text-gray-700 md:flex">
         <a href="#features" className="hover:text-black">特色</a>
-        <a href="#flow" className="hover:text-black">流程</a>
+        {/* <a href="#flow" className="hover:text-black">流程</a> */}
         <a href="#community" className="hover:text-black">社群</a>
         <a href="#download" className="hover:text-black">下載</a>
       </nav>
@@ -144,10 +150,10 @@ const Hero = () => (
           <Badge>Podcast × 社群</Badge>
         </div>
         <h1 className="text-4xl font-extrabold leading-tight text-gray-900 sm:text-5xl">
-          讓每個想法，都能被聽見
+          人人都能成為 <br /> Podcaster
         </h1>
         <p className="mt-5 max-w-xl text-lg leading-relaxed text-gray-700">
-          重新定義 Podcast 體驗，在這裡創作、交流，與聽眾零距離連結。
+          Actpod 是一個全新的 Podcast 平台，打造一個更貼近聽眾的 Podcast 空間，建立 Podcaster 和聽眾之間更緊密的雙向互動。
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <PrimaryButton href="#download">立即免費下載</PrimaryButton>
@@ -161,6 +167,7 @@ const Hero = () => (
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="justify-self-center">
         <PhoneFrame>
           <DemoScreen />
+
         </PhoneFrame>
       </motion.div>
     </Container>
@@ -178,35 +185,36 @@ const Features = () => (
       </div>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <FeatureCard
-          icon={<IconMic className="h-6 w-6" />}
+          icon={<img src="assets/1.png" alt="mic" className="" />}
+          title="人人都是Podcaster"
+          desc="快速開始經營自己的頻道。"
+        />
+        <FeatureCard
+          icon={<img src="assets/home.png" alt="mic" className="" />}
+          title="排版簡潔"
+          desc="更快找到想聽的內容，專注在聲音本身。"
+        />
+        <FeatureCard
+          icon={<img src="assets/3.png" alt="mic" className="" />}
+          title="空間系統"
+          desc="更快瞄準目標聽眾，加深互動與連結。"
+        />
+        <FeatureCard
+          icon={<img src="assets/4.png" alt="mic" className="" />}
+          title="語音對話"
+          desc="開啟與Podcaster間的語音對話。"
+        />
+        <FeatureCard
+          icon={<img src="assets/5.png" alt="mic" className="" />}
+          title="共創變現"
+          desc="全球獨創，語音互動共創變現。"
+        />
+        <FeatureCard
+          icon={<img src="assets/6.png" alt="mic" className="" />}
           title="即時錄音 / 上傳"
           desc="隨時開啟錄音或匯入音檔，靈感來了就開始。"
         />
-        <FeatureCard
-          icon={<IconTag className="h-6 w-6" />}
-          title="AI 智慧整理"
-          desc="自動標題、描述與標籤，省下繁瑣編輯時間。"
-        />
-        <FeatureCard
-          icon={<IconGraph className="h-6 w-6" />}
-          title="數據儀表板"
-          desc="即時掌握播放趨勢與聽眾分佈，內容更有方向。"
-        />
-        <FeatureCard
-          icon={<IconHandshake className="h-6 w-6" />}
-          title="創作者社群"
-          desc="結識夥伴、跨節目合作，讓聲音影響力加倍。"
-        />
-        <FeatureCard
-          icon={<IconWave className="h-6 w-16" />}
-          title="沉浸式瀏覽"
-          desc="滑動就像走進聲音現場，互動與內容同頻共振。"
-        />
-        <FeatureCard
-          icon={<IconMic className="h-6 w-6" />}
-          title="一鍵發布"
-          desc="同步各大平台，省時又省力。"
-        />
+       
       </div>
     </Container>
   </section>
@@ -220,7 +228,7 @@ const FeatureCard = ({ icon, title, desc }) => (
     transition={{ duration: 0.5 }}
     className="group rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:shadow-lg"
   >
-    <div className="mb-4 inline-flex rounded-xl bg-amber-100 p-3 text-amber-700">
+    <div className="mb-4 inline-flex rounded-xl p-3 text-amber-700">
       {icon}
     </div>
     <h3 className="text-lg font-semibold">{title}</h3>
@@ -260,7 +268,7 @@ const Flow = () => (
 );
 
 const Community = () => (
-  <section id="community" className="py-20">
+  <section id="community" className="bg-gradient-to-b from-white to-amber-50 py-20">
     <Container>
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold sm:text-4xl">Podcast 創作者的舞台</h2>
@@ -290,6 +298,7 @@ const Community = () => (
 
 const CTA = () => (
   <section id="download" className="relative overflow-hidden bg-black py-20 text-white">
+    
     <Container className="relative">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold sm:text-4xl">現在就開始，讓世界聽見你的聲音</h2>
@@ -301,6 +310,22 @@ const CTA = () => (
       </div>
       <div className="pointer-events-none absolute -right-24 -top-24 aspect-square w-80 rounded-full bg-amber-300/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 aspect-square w-80 rounded-full bg-amber-200/20 blur-3xl" />
+    </Container>
+    <Container className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+      
+       <div className="flex items-center gap-2">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-black">
+          <IconMic className="h-4 w-4" />
+        </span>
+        <span className="font-semibold">ActPod</span>
+        <span className="text-gray-500">© {new Date().getFullYear()}</span>
+      </div>
+      <nav className="flex items-center gap-6 text-white/80">
+        <a href="#features" className="hover:text-white">特色</a>
+        {/* <a href="#flow" className="hover:text-white">流程</a> */}
+        <a href="#community" className="hover:text-white">社群</a>
+        <a href="#download" className="hover:text-white">下載</a>
+      </nav>
     </Container>
   </section>
 );
@@ -331,10 +356,10 @@ export default function ActPodLanding() {
       <Nav />
       <Hero />
       <Features />
-      <Flow />
+      {/* <Flow /> */}
       <Community />
       <CTA />
-      <Footer />
+      
     </div>
   );
 }
